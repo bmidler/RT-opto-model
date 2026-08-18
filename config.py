@@ -26,9 +26,9 @@ class Config:
 
     # --- Model ---
     cnn_channels: list = field(default_factory=lambda: [16, 32, 64, 128])
-    gru_hidden: int = 128
-    gru_layers: int = 1
-    dropout: float = 0.5
+    gru_hidden: int = 256 # 128
+    gru_layers: int = 4 # 1
+    dropout: float = 0.3
 
     # --- Training ---
     batch_size: int = 16                    # Number of sequences per batch

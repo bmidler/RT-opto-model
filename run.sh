@@ -8,7 +8,7 @@
 #==============================================================================
 
 #SBATCH --job-name=RT-opto-Classifier
-#SBATCH --partition=witten,all
+#SBATCH --partition=witten
 #SBATCH --gpus=1
 #SBATCH -c 32
 #SBATCH --mem=128GB
@@ -40,9 +40,9 @@ python3 -c "import torch; print(f'PyTorch {torch.__version__}'); \
 echo ""
 echo ">>> Running Full Pipeline (Train -> Evaluate -> Benchmark) ..."
 python3 run.py \
-    --labels states_per_session.pkl \
+    --labels supervised_attack_classifications.pkl \
     --video_root ../../Data/Defeat-Cohorts \
-    --output_dir output-9/ \
+    --output_dir outputs/ \
     --batch_size ${BATCH_SIZE:-64} \
     --num_workers ${NUM_WORKERS:-4}
 
