@@ -36,7 +36,7 @@ class Config:
     lr: float = 1e-3
     weight_decay: float = 1e-4              # Was 1e-4, but seemed to low.
     max_epochs: int = 1000
-    patience: int = 50                      # Early-stopping patience (epochs)
+    patience: int = 100                      # Early-stopping patience (epochs)
     val_fraction: float = 0.10              # Fraction of sessions for validation
     num_workers: int = 0                    # 0 = auto-detect (os.cpu_count())
     seed: int = 42

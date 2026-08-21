@@ -41,7 +41,7 @@ echo ""
 echo ">>> Running Full Pipeline (Train -> Evaluate -> Benchmark) ..."
 python3 run.py \
     --labels supervised_attack_classifications.pkl \
-    --video_root ../../Data/Defeat-Cohorts \
+    --video_root ../../Behavior/Data/Defeat-Cohorts \
     --output_dir outputs/ \
     --batch_size ${BATCH_SIZE:-64} \
     --num_workers ${NUM_WORKERS:-4}
