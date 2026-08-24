@@ -42,7 +42,7 @@ def parse_args():
 
     # Training overrides
     p.add_argument("--lr", type=float, default=None)
-    p.add_argument("--batch_size", type=int, default=16)
+    p.add_argument("--batch_size", type=int, default=None)
     p.add_argument("--max_epochs", type=int, default=None)
     p.add_argument("--patience", type=int, default=None)
     p.add_argument("--gru_hidden", type=int, default=None)
@@ -79,6 +79,7 @@ def main():
     else:
         cfg.model_save_path = f"{cfg.output_dir}/best_model.pt"
 
+    # Apply CLI overrides to config
     for field in ["lr", "batch_size", "max_epochs", "patience",
                   "gru_hidden", "dropout", "seed",
                   "grad_accum_steps", "num_workers"]:
