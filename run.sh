@@ -39,6 +39,7 @@ module load anacondapy/2023.07-cuda
 eval "$($HOME/miniconda3/bin/conda shell.bash hook)"
 conda activate general
 
+# Variables for paths for output dir, path to the supervised labels, and the root directory for the videos.
 MODE=${MODE:-full}
 OUTPUT_DIR=${OUTPUT_DIR:-outputs/}
 LABELS=${LABELS:-supervised_attack_classifications.pkl}

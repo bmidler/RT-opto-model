@@ -2,14 +2,9 @@
 
 Architecture
 ------------
-1.  Lightweight CNN encoder maps each (1, H, W) frame to a feature vector.
+1.  CNN encoder maps each (1, H, W) frame to a feature vector.
 2.  GRU processes sequences of feature vectors, accumulating temporal context.
 3.  Linear head maps each GRU output to class logits.
-
-GRU is chosen over LSTM here because:
-- Fewer parameters → faster inference (critical for real-time deployment).
-- Single hidden state → simpler state management during live streaming.
-- Empirically comparable to LSTM on sequences of this length (~240 steps).
 """
 
 import torch

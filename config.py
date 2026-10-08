@@ -44,10 +44,7 @@ class Config:
     use_amp: bool = True                    # Mixed-precision training
 
     # Maximum DataLoader workers when auto-detecting. Each worker is a
-    # persistent subprocess that stages full frame chunks in memory; beyond
-    # a small number the RAM cost outweighs any throughput benefit, and on
-    # a many-core node the uncapped value (os.cpu_count()) will exhaust the
-    # job's memory allocation and trigger the OOM killer.
+    # persistent subprocess that stages full frame chunks in memory.
     max_dataloader_workers: int = 4
 
     def resolve_num_workers(self, world_size: int = 1) -> int:

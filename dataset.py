@@ -1,6 +1,6 @@
 """Dataset and data-loading utilities for video frame classification.
 
-Key design choice: videos are decoded once (sequentially) during dataset
+Videos are decoded once (sequentially) during dataset
 construction and stored as memory-mapped numpy arrays on disk.  This avoids
 the critical bottleneck of seeking into compressed H.264/H.265 mp4 files on
 every __getitem__ call — OpenCV's CAP_PROP_POS_FRAMES seek must decode
@@ -17,6 +17,11 @@ stride is forced to 1.
 
 Memmaps are opened lazily in __getitem__ so that the Dataset can be safely
 pickled into DataLoader worker processes (num_workers > 0).
+
+NOTE: there are expectations that:
+- Videos have the same resolution.
+- Session names have the CSDS-Day#-ID_#-Condition naming format, and that this is shared between the session names for the lables and for the videos.
+- That video directories are named with the session name, and that the video you want is in the Camera0 sub-directory.
 """
 
 import hashlib
